@@ -14,6 +14,11 @@ mods_core.sh
 
 fn_print_header
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandmodinstall"
+    alert.sh
+fi
+
 # Displays a list of installed mods.
 fn_mods_installed_list
 if [ "${installedmodscount}" -gt "0" ]; then

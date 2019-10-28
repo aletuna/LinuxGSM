@@ -9,6 +9,11 @@ local commandname="START"
 local commandaction="Starting"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandstart"
+    alert.sh
+fi
+
 fn_start_teamspeak3(){
 	if [ ! -e "${servercfgfullpath}" ]; then
 		fn_print_warn_nl "${servercfgfullpath} is missing"

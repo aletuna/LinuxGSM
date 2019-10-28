@@ -8,6 +8,11 @@ local commandname="VALIDATE"
 local commandaction="Validate"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandvalidate"
+    alert.sh
+fi
+
 fn_validation(){
 	fn_print_info "Validating files: SteamCMD"
 	echo -e ""

@@ -9,6 +9,11 @@ local commandname="STOP"
 local commandaction="Stopping"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandstop"
+    alert.sh
+fi
+
 # Attempts graceful shutdown by sending 'CTRL+c'.
 fn_stop_graceful_ctrlc(){
 	fn_print_dots "Graceful: CTRL+c"

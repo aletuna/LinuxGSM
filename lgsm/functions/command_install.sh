@@ -9,6 +9,11 @@ local commandname="INSTALL"
 local commandaction="Install"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandinstall"
+    alert.sh
+fi
+
 check.sh
 if [ "$(whoami)" = "root" ]; then
 	check_deps.sh

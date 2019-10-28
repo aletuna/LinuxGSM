@@ -88,6 +88,70 @@ fn_alert_command_restart(){
 	alertbody="${alertonrestartmessage}"
 }
 
+fn_alert_command_install(){
+	fn_script_log_info "Sending alert: Install triggered: ${servicename}"
+	alert_slack="Alert - ${servicename} - Install requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Install started"
+}
+
+fn_alert_command_mod_install(){
+	fn_script_log_info "Sending alert: Mod install: ${servicename}"
+	alert_slack="Alert - ${servicename} - Mod install requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Mod install started"
+}
+
+fn_alert_command_mod_update(){
+	fn_script_log_info "Sending alert: Mod update: ${servicename}"
+	alert_slack="Alert - ${servicename} - Mod update requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Mod update started"
+}
+
+fn_alert_command_start(){
+	fn_script_log_info "Sending alert: Start: ${servicename}"
+	alert_slack="Alert - ${servicename} - Start requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Start started"
+}
+
+fn_alert_command_stop(){
+	fn_script_log_info "Sending alert: Stop: ${servicename}"
+	alert_slack="Alert - ${servicename} - Stop requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Stop started"
+}
+
+fn_alert_command_update(){
+	fn_script_log_info "Sending alert: Server Update: ${servicename}"
+	alert_slack="Alert - ${servicename} - Server Update requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Server Update started"
+}
+
+fn_alert_command_validate(){
+	fn_script_log_info "Sending alert: Server validation: ${servicename}"
+	alert_slack="Alert - ${servicename} - Server validation requested By Admin"
+	alertemoji="⚡"
+	alertsound="2"
+	alerturl="not enabled"
+	alertbody="Server validation started"
+}
+
+
 if [ "${alert}" == "permissions" ]; then
 	fn_alert_permissions
 elif [ "${alert}" == "restart" ]; then
@@ -101,6 +165,20 @@ elif [ "${alert}" == "update" ]; then
 elif [ "${alert}" == "config" ]; then
 	fn_alert_config
 elif [ "${alert}" == "commandrestart" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandinstall" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandmodinstall" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandmodupdate" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandstart" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandstop" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandupdate" ]; then
+	fn_alert_command_restart
+elif [ "${alert}" == "commandvalidate" ]; then
 	fn_alert_command_restart
 fi
 

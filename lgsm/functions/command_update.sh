@@ -8,6 +8,11 @@ local commandname="UPDATE"
 local commandaction="Update"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandupdate"
+    alert.sh
+fi
+
 fn_print_dots ""
 check.sh
 logs.sh

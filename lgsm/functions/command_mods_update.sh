@@ -12,6 +12,11 @@ local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 check.sh
 mods_core.sh
 
+if [ "${verbosealerts}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandmodsupdate"
+    alert.sh
+fi
+
 # Prevents specific files being overwritten upon update (set by ${modkeepfiles}).
 # For that matter, remove cfg files after extraction before copying them to destination.
 fn_remove_cfg_files(){
