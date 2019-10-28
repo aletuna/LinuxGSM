@@ -64,6 +64,7 @@ for queryattempt in {1..5}; do
 				# Send alert if enabled.
 				alert="restartquery"
 				alert.sh
+				monitor="yes"
 				command_restart.sh
 				core_exit.sh
 			fi

@@ -8,6 +8,11 @@ local commandname="RESTART"
 local commandaction="Restarting"
 local function_selfname="$(basename "$(readlink -f "${BASH_SOURCE[0]}")")"
 
+if [ "${alertonrestart}" == "on" ]&&[ "${monitor}" != "yes" ]; then
+    alert="commandrestart"
+    alert.sh
+fi
+
 info_config.sh
 exitbypass=1
 command_stop.sh

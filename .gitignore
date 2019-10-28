@@ -1,2 +1,7 @@
 *.db
 .idea
+*csgoserver*
+serverfiles/
+log/
+logs/
+steamcmd/
